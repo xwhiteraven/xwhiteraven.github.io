@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>?</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            height: 100vh;
+        }
+
+        body {
+            background: #5a5a5a;
+        }
+
+        #hint {
+            width: 100%;
+        }
+
+        #colors img {
+            max-width: 100%;
+        }
+
+        #colors {
+            width: 100px;
+            display: inline-block;
+        }
+
+        #cell, #ten {
+            font-size: 100px;
+            display: inline-block;
+            margin-left: 20px;
+        }
+
+        #hint {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="hint">
+            <span id="colors"><img src="colors.png" alt="RBG"></span>
+            <span id="cell">#</span>
+            <span id="ten">10</span>
+        </div>
+
+        <img src="hmm.png" alt="Hmm...">
+    </div>
+</body>
+</html>
