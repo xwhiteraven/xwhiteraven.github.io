@@ -147,26 +147,25 @@
                         var context = s.graphics;
                         s.drag();
                         s.mouseChildren = false;
+                        s.name = n;
                         s.addEventListener("pressup", function(e) {
                             var mc = e.currentTarget;
+                            console.log(mc);
  
                             var xx = Math.round(mc.x);
                             var yy = Math.round(mc.y);
-
-                            var d = n + 1 - 1;
  
                             if (xx < puzzleX+gap / 2 && xx > puzzleX-gap / 2 && yy < puzzleY+gap / 2 && yy > puzzleY-gap / 2) {
                                 mc.x = puzzleX;
                                 mc.y = puzzleY;
                                 mc.noDrag();
-                                //mc.addTo(mc.parent,0);
+                                mc.addTo(mc.parent,0);
                                 mc.mouseChildren = false;
                                 mc.mouseEnabled = false;
                                 mc.hint.visible = false;
                                 countPieces++;
                                 label.text = countPieces + "/" + totalPieces;
-                                imagePix2.push(d);
-                                console.log(mc);
+                                imagePix2.push(mc.name);
                                 
                                 if (countPieces == totalPieces) {
                                     var pane = new Pane({width:600,label: `Код: ${Math.random().toString(36).substr(2, 6)}`, height:250, modal:false, displayClose:false});
