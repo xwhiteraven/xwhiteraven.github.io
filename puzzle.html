@@ -153,7 +153,6 @@
                         var context = s.graphics;
                         s.drag();
                         s.mouseChildren = false;
-                        s.daa = n;
                         s.addEventListener("pressup", function(e) {
                             var mc = e.currentTarget;
  
@@ -170,7 +169,7 @@
                                 mc.hint.visible = false;
                                 countPieces++;
                                 label.text = countPieces + "/" + totalPieces;
-                                imagePix2.push(this.daa);
+                                imagePix2.push(n);
                                 console.log(imagePix2);
                                 
                                 if (countPieces == totalPieces) {
