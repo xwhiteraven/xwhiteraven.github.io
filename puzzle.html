@@ -150,7 +150,7 @@
                         s.name = n;
                         s.addEventListener("pressup", function(e) {
                             var mc = e.currentTarget;
-                            console.log(mc);
+                            //console.log(mc);
  
                             var xx = Math.round(mc.x);
                             var yy = Math.round(mc.y);
@@ -165,13 +165,15 @@
                                 mc.hint.visible = false;
                                 countPieces++;
                                 label.text = countPieces + "/" + totalPieces;
-                                imagePix2.push(mc.name + 1);
+                                imagePix2.push(+mc.name + 1);
 
                                 imagePix = [1, 3, 6, 10];
 
                                 for (var i = 1; i < imagePix2.length; i++) {
                                     imagePix2[i] += imagePix2[i - 1];
                                 }
+
+                                console.log(imagePix2);
 
                                 if (imagePix2 == imagePix) {
                                     var pane = new Pane({width:600,label: "youareawinner", height:250, modal:false, displayClose:false});
