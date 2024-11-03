@@ -167,9 +167,7 @@
                                 label.text = countPieces + "/" + totalPieces;
                                 imagePix2.push(+mc.name + 1);
 
-                                console.log(imagePix2);
-
-                                imagePix = [1, 3, 6, 10];
+                                imagePix = [1, 3]; // TODO: remove
 
                                 var imagePix3 = imagePix2.slice();
                                 for (var i = 1; i < imagePix2.length; i++) {
@@ -179,10 +177,7 @@
                                 if ((imagePix3.length == imagePix.length) && imagePix3.every(function(element, index) {
                                     return element === imagePix[index]; }))
                                 {
-                                    console.log('win');
-                                    console.log(imagePix3);
-
-                                    var pane = new Pane({width:600,label: "youareawinner", height:250, modal:false, displayClose:false});
+                                    var pane = new Pane({width:600,label: "array.prototype", height:250, modal:false, displayClose:false});
                                     var confirm = new Button(120, 50, "Ok", "green").center(pane).mov(0,70);
  
                                     confirm.on("click", function() {
