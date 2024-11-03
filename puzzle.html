@@ -122,7 +122,7 @@
                 for (j = 0; j < verticalPieces; j++) {
                     piecesArrayObj[j] = [];
                     for (i = 0; i < horizontalPieces; i++) {
-                        var n = j + i * verticalPieces;
+                        var n = i + j * horizontalPieces;
                         //console.log(n);
  
                         var offsetX = pieceWidth * i;
