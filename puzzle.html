@@ -110,8 +110,12 @@
                 puzzleX = frame.width / 2 - imageWidth / 2;
                 puzzleY = frame.height / 2 - imageHeight / 2;
 
+                // FOR PUZZLE SEQUENCE
+                var imagePix = [4, 21, 23, 24, 49, 113, 147]; // needed
+                var imagePix2 = []; // user did
+
                 imageObj.pos(puzzleX, puzzleY);
-                zog(puzzleX, puzzleY);
+                //zog(puzzleX, puzzleY);
  
                 label.text = countPieces + "/" + totalPieces;
 
@@ -149,6 +153,7 @@
                         var context = s.graphics;
                         s.drag();
                         s.mouseChildren = false;
+                        s.daa = n;
                         s.addEventListener("pressup", function(e) {
                             var mc = e.currentTarget;
  
@@ -164,7 +169,9 @@
                                 mc.mouseEnabled = false;
                                 mc.hint.visible = false;
                                 countPieces++;
-                                label.text = "Собрано "+countPieces+"/"+totalPieces;
+                                label.text = countPieces + "/" + totalPieces;
+                                imagePix2.append(this.daa);
+                                console.log(imagePix2);
                                 
                                 if (countPieces == totalPieces) {
                                     var pane = new Pane({width:600,label: `Код: ${Math.random().toString(36).substr(2, 6)}`, height:250, modal:false, displayClose:false});
