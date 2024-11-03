@@ -156,6 +156,8 @@
                         s.mouseChildren = false;
                         s.addEventListener("pressup", function(e) {
                             var mc = e.currentTarget;
+
+                            var d = n + 1 - 1;
  
                             var xx = Math.round(mc.x);
                             var yy = Math.round(mc.y);
@@ -170,8 +172,8 @@
                                 mc.hint.visible = false;
                                 countPieces++;
                                 label.text = countPieces + "/" + totalPieces;
-                                imagePix2.push(+n);
-                                console.log(+n);
+                                imagePix2.push(d);
+                                console.log(d);
                                 
                                 if (countPieces == totalPieces) {
                                     var pane = new Pane({width:600,label: `Код: ${Math.random().toString(36).substr(2, 6)}`, height:250, modal:false, displayClose:false});
