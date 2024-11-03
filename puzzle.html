@@ -72,7 +72,7 @@
             // with chaining - can also assign to a variable for later access
             var imageObj = [];
             var piecesArrayObj = [];
-            frame.loadAssets(["colors.png"], "assets/");
+            frame.loadAssets(["bg.jpg"], "assets/");
  
             var label = new Label({
                text: "...",
@@ -86,7 +86,7 @@
             label.x = label.y = 20;
 
             frame.on("complete", function() {
-                imageObj = frame.asset("colors.png").clone();
+                imageObj = frame.asset("bg.jpg").clone();
                 imageObj.addTo(con);
                 imageObj.alpha = 0;
  
@@ -115,7 +115,6 @@
                 var imagePix2 = []; // user did
 
                 imageObj.pos(puzzleX, puzzleY);
-                //zog(puzzleX, puzzleY);
  
                 label.text = countPieces + "/" + totalPieces;
 
@@ -123,7 +122,6 @@
                     piecesArrayObj[j] = [];
                     for (i = 0; i < horizontalPieces; i++) {
                         var n = i + j * horizontalPieces;
-                        //console.log(n);
  
                         var offsetX = pieceWidth * i;
                         var offsetY = pieceHeight * j;
@@ -142,11 +140,6 @@
                         if (i > 0) {
                             piecesArrayObj[j][i].left = 1 - piecesArrayObj[j][i - 1].right;
                         }
- 
-                        piecesArray[n] = new Rectangle({
-                            width: pieceWidth,
-                            height: pieceHeight
-                        });
 
                         var tileObj = piecesArrayObj[j][i];
                         var s = new Shape;
@@ -156,11 +149,11 @@
                         s.mouseChildren = false;
                         s.addEventListener("pressup", function(e) {
                             var mc = e.currentTarget;
-
-                            var d = n + 1 - 1;
  
                             var xx = Math.round(mc.x);
                             var yy = Math.round(mc.y);
+
+                            var d = n + 1 - 1;
  
                             if (xx < puzzleX+gap / 2 && xx > puzzleX-gap / 2 && yy < puzzleY+gap / 2 && yy > puzzleY-gap / 2) {
                                 mc.x = puzzleX;
@@ -173,7 +166,7 @@
                                 countPieces++;
                                 label.text = countPieces + "/" + totalPieces;
                                 imagePix2.push(d);
-                                console.log(d);
+                                console.log(mc.x, mc.y);
                                 
                                 if (countPieces == totalPieces) {
                                     var pane = new Pane({width:600,label: `Код: ${Math.random().toString(36).substr(2, 6)}`, height:250, modal:false, displayClose:false});
