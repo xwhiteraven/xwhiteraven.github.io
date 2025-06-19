@@ -111,8 +111,8 @@
                 puzzleY = frame.height / 2 - imageHeight / 2;
 
                 // FOR PUZZLE SEQUENCE
-                var imagePix = [4, 21, 23, 24, 49, 113, 147]; // needed
-                var imagePix2 = []; // user did
+                var neededPieceSeq = [64, 14, 9, 24, 45, 1]; // needed
+                var userPieceSeq = []; // user did
 
                 imageObj.pos(puzzleX, puzzleY);
  
@@ -165,20 +165,15 @@
                                 mc.hint.visible = false;
                                 countPieces++;
                                 label.text = countPieces + "/" + totalPieces;
-                                imagePix2.push(+mc.name + 1);
+                                userPieceSeq.push(+mc.name + 1);
 
-                                imagePix = [1, 3]; // TODO: remove
+                                neededPieceSeq = [1, 2]; // TODO: remove
 
-                                var imagePix3 = imagePix2.slice();
-                                for (var i = 1; i < imagePix2.length; i++) {
-                                    imagePix3[i] += imagePix3[i - 1];
-                                }
-
-                                if ((imagePix3.length == imagePix.length) && imagePix3.every(function(element, index) {
-                                    return element === imagePix[index]; }))
+                                if ((userPieceSeq.length == neededPieceSeq.length) && userPieceSeq.every(function(element, index) {
+                                    return element === neededPieceSeq[index]; }))
                                 {
-                                    var pane = new Pane({width:600,label: "array.supplies", height:250, modal:false, displayClose:false});
-                                    var confirm = new Button(120, 50, "Ok", "green").center(pane).mov(0,70);
+                                    var pane = new Pane({width:600,label: "arrayprototype", height:250, modal:false, displayClose:false});
+                                    var confirm = new Button(120, 50, "Ok", "green").center(pane).mov(0, 70);
  
                                     confirm.on("click", function() {
                                         pane.hide();
@@ -187,7 +182,7 @@
                                 }
                                 
                                 if (countPieces == totalPieces) {
-                                    var pane = new Pane({width:600,label: "Congratulations!\n?v=47n6v4e3QJE", height:250, modal:false, displayClose:false});
+                                    var pane = new Pane({width:600,label: "Good job!", height:250, modal:false, displayClose:false});
                                     var confirm = new Button(120, 50, "Ok", "green").center(pane).mov(0,70);
  
                                     confirm.on("click", function() {
