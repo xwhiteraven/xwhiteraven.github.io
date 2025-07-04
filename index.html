@@ -26,6 +26,7 @@
 
         #hint {
             width: 100%;
+            text-align: center;
         }
 
         #colors img {
@@ -43,8 +44,9 @@
             margin-left: 20px;
         }
 
-        #hint {
-            text-align: center;
+        .hint-arrow {
+            display: inline-block;
+            margin: 0 10px;
         }
     </style>
 </head>
@@ -52,7 +54,9 @@
     <div id="container">
         <div id="hint">
             <span id="colors"><img src="colors.png" alt="RBG"></span>
+            <span class="hint-arrow">→</span>
             <span id="cell">#</span>
+            <span class="hint-arrow">→</span>
             <span id="ten">10</span>
         </div>
     </div>
