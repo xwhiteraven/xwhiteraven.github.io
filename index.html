@@ -26,7 +26,11 @@
 
         #hint {
             width: 100%;
-            text-align: center;
+            font-family: monospace;
+            font-size: 25px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
         }
 
         #colors img {
@@ -53,12 +57,16 @@
 <body>
     <div id="container">
         <div id="hint">
-            <span id="colors"><img src="colors.png" alt="RBG"></span>
-            <span class="hint-arrow">→</span>
-            <span id="cell">#</span>
-            <span class="hint-arrow">→</span>
-            <span id="ten">10</span>
+            <div>
+                &gt; Help! My sauce is getting saltier! <br>
+                &gt; What should I do? LOL
+            </div>
         </div>
+        <span id="colors"><img src="colors.png" alt="RBG"></span>
+        <span class="hint-arrow">→</span>
+        <span id="cell">#</span>
+        <span class="hint-arrow">→</span>
+        <span id="ten">10</span>
     </div>
 </body>
 </html>
